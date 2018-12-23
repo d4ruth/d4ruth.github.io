@@ -1,5 +1,7 @@
 # incrementergame
 
+**Link to candybox sourcecode: https://github.com/candybox2/candybox**
+
 index.html - main page, only html needed (probably)
 
 main.js - contains all current code, will be split up and put into ./scripts directory at some point
