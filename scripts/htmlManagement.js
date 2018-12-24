@@ -1,8 +1,8 @@
 var htmlManagement = {
-	makeVisible : function(id) {
+	setVisible : function(id) {
 		document.getElementById(id).style.visibility = "visible";
 	},
-	makeInvisible : function(id) {
+	setInvisible : function(id) {
 		document.getElementById(id).style.visibility = "hidden";
 	},
 	enable : function(id) {

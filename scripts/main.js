@@ -4,12 +4,14 @@ var main = {
 	onload : function() {
 		gpa.onload();
 		money.onload();
+		iq.onload();
 		message.onload();
 		window.setInterval(this.update.bind(this), 1);
 	},
 	update : function() {
 		gpa.update();
 		money.update();
+		iq.update();
 		message.getMessages();
 	}
 };

@@ -5,6 +5,7 @@ var money = {
 	moneyBacklog : 0.00,
 	moneyPerMilli : 0.00,
 	
+	
 	//Functions
 	onload : function() {
 		this.displayMoney();

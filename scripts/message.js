@@ -3,8 +3,8 @@ var message = {
 	newMessage : true,
 	
 	onload : function() {
-		htmlManagement.makeInvisible("message");
 	},
+	
 	getMessages : function() {
 		if (this.newMessage) {
 			
