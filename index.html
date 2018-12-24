@@ -33,26 +33,28 @@ Light Gray: A2A4A3
 		<header>
 			<h3>My<span style="color: #CFB87C">Student</span>Hub</h3>
 		</header>
-		
-		<!-- the three main columns -->
 		<div id="mainbody">
-			<div id="gpabody" class="column" style="margin-left: 0.5vw;">
-				<p>Current GPA: <span id="gpa"></span></p>
-				<button id="homework" onclick="gpa.doHomework();">Do homework assignment</button>
-				<!-- <button id="alarmclock" onclick="gpa.getAlarmClock();">Buy alarm clock</button> -->
+			<!-- the three main columns -->
+			<div id="columns">
+				<div id="gpabody" class="column" style="margin-left: 0.5vw;">
+					<p>Current GPA: <span id="gpa"></span></p>
+					<button id="homework" onclick="gpa.doHomework();">Do homework assignment</button>
+					<button id="alarmclock" onclick="gpa.getAlarmClock();" style="visibility:hidden;">$5-Buy alarm clock (improves your sleep schedule so you get to classes on time, improving GPA)</button>
+				</div>
+				
+				<div id="moneybody" class="column" style="visibility:hidden;">
+					<p>Current balance: $<span id="money"></span></p>
+				</div>
+				
+				<div id="iqbody" class="column" style="visibility:hidden;">
+					<p>Your IQ is <span id="iq"></span></p>
+					<p>blah blah blah</p>
+				</div>
 			</div>
-			<div id="moneybody" class="column" style="visibility:hidden;">
-				<p>Current balance: $<span id="money"></span></p>
-				<p>blah blah blah</p>
-			</div>
-			<div id="iqbody" class="column" style="visibility:hidden;">
-				<p>Your IQ is <span id="iq"></span></p>
-				<p>blah blah blah</p>
-			</div>
-		</div>
 		
-		<!-- message box -->
-		<div id="message" style="visibility:hidden;"><button onclick='message.clearMessages();'>Clear messages</button><br>
+			<!-- message box -->
+			<div id="message" style="visibility:hidden;"><button onclick='message.clearMessages();'>Clear messages</button><br>
+			</div>
 		</div>
 	</body>
 </html>

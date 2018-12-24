@@ -34,8 +34,8 @@ button {
 	border-width: 10px;
 	border-color: #A2A4A3;
 	background-color: white;
-	/*padding: 2px;
-	margin-top: 5px;*/
+	padding: 2px;
+	margin-top: 5px;
 	font-family: Courier, monospace;
 	clear: both;
 }
