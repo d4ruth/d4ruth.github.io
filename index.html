@@ -6,7 +6,6 @@ December 2018
 
 CU colors:
 Gold: CFB87C
-Black: waddayathink
 Dark Gray: 565A5C
 Light Gray: A2A4A3
 -->
@@ -18,40 +17,42 @@ Light Gray: A2A4A3
 		<meta name="author" content="Drake Rutherford">
 		<meta charset="UTF-8">
 		
-		<!-- main js -->
-		<script type="text/javascript" src="main.js"></script>
-
-		<!-- stylesheet (put in CSS file later) -->
-		<style>
-			body {
-				background-color: black;
-			}
-			header {
-				text-align: left;
-				font-size: 35px;
-				color: white;
-				font-family: Arial, Helvetica, sans-serif;
-			}
-			p {
-				font-size: 20px;
-				color: black;
-				font-family: Arial, Helvetica, sans-serif;
-				padding: 5px;
-			}
-			button {
-				margin: 5px;
-			}
-			#mainbody {
-				background-color: white;
-		</style>
+		<!-- javascript -->
+		<script type="text/javascript" src="./scripts/main.js"></script>
+		<script type="text/javascript" src="./scripts/htmlManagement.js"></script>
+		<script type="text/javascript" src="./scripts/message.js"></script>
+		<script type="text/javascript" src="./scripts/gpa.js"></script>
+		<script type="text/javascript" src="./scripts/money.js"></script>
+		<script type="text/javascript" src="./scripts/iq.js"></script>
+		
+		<!-- stylesheet -->
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
+	
 	<body>
 		<header>
 			<h3>My<span style="color: #CFB87C">Student</span>Hub</h3>
 		</header>
+		
+		<!-- the three main columns -->
 		<div id="mainbody">
-			<p>You have <span id="gpa"></span> GPAs</p>
-			<button id="homework" onclick="main.doHomework();">Do homework assignment</button>
+			<div id="gpabody" class="column" style="margin-left: 0.5vw;">
+				<p>Current GPA: <span id="gpa"></span></p>
+				<button id="homework" onclick="gpa.doHomework();">Do homework assignment</button>
+				<button id="alarmclock" onclick="gpa.getAlarmClock();">Buy alarm clock</button>
+			</div>
+			<div id="moneybody" class="column" style="visibility:hidden;">
+				<p>Current balance: $<span id="money"></span></p>
+				<p>blah blah blah</p>
+			</div>
+			<div id="iqbody" class="column" style="visibility:hidden;">
+				<p>Your IQ is <span id="iq"></span></p>
+				<p>blah blah blah</p>
+			</div>
+		</div>
+		
+		<!-- message box -->
+		<div id="message"><button onclick='message.clearMessages();'>Clear messages</button><br>
 		</div>
 	</body>
 </html>
