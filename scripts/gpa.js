@@ -8,7 +8,7 @@ var gpa = {
 	clickLevel : 1,
 	
 	//Products (NOTE: this is a STACK, so products are listed in reverse order of acquisition 
-	products : [filler],
+	products : [filler5],
 	nextProduct : planner,
 	currentProduct : clock,
 	

@@ -43,7 +43,7 @@ button:disabled {
 }
 .column {
 	float: left;
-	width: 33vw;
+	width: 30vw;
 	background-color: white;
 	text-align: left;
 }

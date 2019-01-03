@@ -36,6 +36,7 @@ var money = {
 	
 	update : function() {
 		this.checkFlags();
+		this.checkButtons();
 		this.checkQuest();
 		this.moneyBacklog += this.moneyPerMilli;
 		if (this.moneyBacklog >= 1) {

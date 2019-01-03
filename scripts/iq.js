@@ -12,8 +12,8 @@ var iq = {
 	
 	//Products
 	products : [],
-	nextProduct : filler2,
-	currentProduct : filler,
+	nextProduct : filler4,
+	currentProduct : filler3,
 	
 	//Functions
 	onload : function() {
@@ -36,6 +36,7 @@ var iq = {
 	
 	update : function() {
 		this.checkFlags();
+		this.checkButtons();
 		this.checkQuest();
 		this.iqBacklog += this.iqPerMilli;
 		if (this.iqBacklog >= 1) {
@@ -52,7 +53,7 @@ var iq = {
 			htmlManagement.setInnerHTML("iqquest", this.currentQuest.getQuestText());
 		}
 		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("iqstats", this.currentProduct.formalname + ': ' + this.numIncrementers + ', ' + this.iqPerMilli + 'IQ points/update');
+			htmlManagement.setInnerHTML("iqstats", this.currentProduct.formalname + ': ' + this.numIncrementers + ', ' + this.iqPerMilli + ' IQ points/update');
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
@@ -64,8 +65,8 @@ var iq = {
 			this.iqPerMilli += this.currentProduct.increment;
 			this.numIncrementers += 1;
 			switch(this.currentProduct.unit) {
-				case 'gpa':
-					gpa.GPApermilli -= this.currentProduct.cost;
+				case 'money':
+					money.numMoney -= this.currentProduct.cost;
 					break;
 				case 'iq':
 					iq.numIq -= this.currentProduct.cost;
@@ -135,7 +136,7 @@ var iq = {
 					break;
 			}
 			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
-			htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
+			htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
