@@ -16,11 +16,17 @@ Note that the player will not get to see the next product in line for upgrading 
 
 Products have the following arguments:
 * cost - how much to be spent to acquire it
+
 * upgradeCost - how much needs to be spent per old product to upgrade to this new product
+
 * unit - which unit is spent to acquire it/upgrade to it (either money or iq, *never* gpa)
+
 * increment - how much the product increases the columns update stream by
+
 * name - the text that represents this product in the middle of buttons. Always lowercase.
+
 * formalname - the text that represents this product in each column's update stream section. Always capitalized.
+
 * flavor - flavor text that describes the product, displayed inside buttons
 
 # ClickProducts
@@ -29,11 +35,16 @@ Like products, but exclusively for the gpa column, which is the only column with
 **The clickproduct stack must have a minimum of 1 item in it**
 
 ClickProducts have the following arguments:
-* cost - how much to be spent to upgrade the click button to this* 
+* cost - how much to be spent to upgrade the click button to this
+
 * unit - what's spent to acquire this, either money or iq
+
 * increment - how much gpa the clicker generates once this clickproduct is acquired
+
 * name - text to represent this product in the upgrade button. Always lowercase.
+
 * buttontext - the text that the clicker button will have once this product is acquired
+
 * flavor - text to describe this product in the upgrade button
 
 # Quests
@@ -45,8 +56,11 @@ A quest's prerequisites are always having x amount of gpa or money or iq. No gpa
 
 Quests have the following arguments:
 * cost - how much of a unit the player must have for the quest to be complete
+
 * unit - the unit of the cost, gpa or money or iq 
+
 * gain - how much the column gains from the quest
+
 * message - the text message the player receives when the quest is complete
 
 # Adding content
