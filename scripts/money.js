@@ -7,17 +7,20 @@ var money = {
 	numIncrementers : 0,
 	
 	//Quests
-	quests: [thirdQuest, secondQuest],
-	currentQuest: firstMoneyQuest,
+	quests: moneyQuestStack,
+	currentQuest: null,
 	
 	//Products
-	products : [],
-	nextProduct : filler2,
-	currentProduct : filler,
+	products : moneyProductStack,
+	nextProduct : null,
+	currentProduct : null,
 	
 	//Functions
 	onload : function() {
-		this.displayMoney();
+		this.currentQuest = this.quests.pop();
+		
+		this.currentProduct = this.products.pop();
+		this.nextProduct = this.products.pop();
 		
 		//initialize upgrade button text
 		if (this.currentProduct != null) {
@@ -32,6 +35,7 @@ var money = {
 		else {
 			alert("ERROR: no money.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
 		}
+		this.displayMoney();
 	},
 	
 	update : function() {

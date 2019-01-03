@@ -7,17 +7,20 @@ var iq = {
 	numIncrementers : 0,
 	
 	//Quests
-	quests: [],
-	currentQuest: firstIqQuest,
+	quests: iqQuestStack,
+	currentQuest: null,
 	
 	//Products
-	products : [],
-	nextProduct : filler4,
-	currentProduct : filler3,
+	products : iqProductStack,
+	nextProduct : null,
+	currentProduct : null,
 	
 	//Functions
 	onload : function() {
-		this.displayIq();
+		this.currentQuest = this.quests.pop();
+		
+		this.currentProduct = this.products.pop();
+		this.nextProduct = this.products.pop();
 		
 		//initialize upgrade button text
 		if (this.currentProduct != null) {
@@ -32,6 +35,7 @@ var iq = {
 		else {
 			alert("ERROR: no iq.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
 		}
+		this.displayIq();
 	},
 	
 	update : function() {

@@ -8,17 +8,20 @@ var gpa = {
 	clickLevel : 1,
 	
 	//Products (NOTE: this is a STACK, so products are listed in reverse order of acquisition 
-	products : [filler5],
-	nextProduct : planner,
-	currentProduct : clock,
+	products : gpaProductStack,
+	nextProduct : null,
+	currentProduct : null,
 	
 	//Click products (like Products, this is a STACK)
-	clickProducts : [clicker],
-	nextClickProduct : nicepen,
+	clickProducts : gpaClickStack,
+	nextClickProduct : null,
 	
 	//Functions
 	onload : function() {
-		this.displayGPA();
+		this.currentProduct = this.products.pop();
+		this.nextProduct = this.products.pop();
+		
+		this.nextClickProduct = this.clickProducts.pop();
 		
 		//initialize upgrade button text
 		if (this.currentProduct != null) {
@@ -41,6 +44,7 @@ var gpa = {
 		else {
 			alert("ERROR: no gpa.nextClickProduct found on load. The GPA column must start with nextClickProduct initialized");
 		}
+		this.displayGPA();
 	},
 	
 	update : function() {	
