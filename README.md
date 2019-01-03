@@ -15,6 +15,7 @@ Note that the player will not get to see the next product in line for upgrading 
 **Each product stack must have a minimum of 2 items in it**
 
 Products have the following arguments:
+
 * cost - how much to be spent to acquire it
 
 * upgradeCost - how much needs to be spent per old product to upgrade to this new product
@@ -35,6 +36,7 @@ Like products, but exclusively for the gpa column, which is the only column with
 **The clickproduct stack must have a minimum of 1 item in it**
 
 ClickProducts have the following arguments:
+
 * cost - how much to be spent to upgrade the click button to this
 
 * unit - what's spent to acquire this, either money or iq
@@ -55,6 +57,7 @@ A quest's prerequisites are always having x amount of gpa or money or iq. No gpa
 **Each quest stack must have a minimum of 1 item in it**
 
 Quests have the following arguments:
+
 * cost - how much of a unit the player must have for the quest to be complete
 
 * unit - the unit of the cost, gpa or money or iq 
