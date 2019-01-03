@@ -2,7 +2,7 @@
 
 <!--
 By Drake Rutherford
-December 2018
+December 2018-January 2019
 
 CU colors:
 Gold: CFB87C
@@ -19,6 +19,9 @@ Light Gray: A2A4A3
 		
 		<!-- javascript -->
 		<script type="text/javascript" src="./scripts/main.js"></script>
+		<script type="text/javascript" src="./scripts/messages.js"></script>
+		<script type="text/javascript" src="./scripts/product.js"></script>
+		<script type="text/javascript" src="./scripts/quest.js"></script>
 		<script type="text/javascript" src="./scripts/htmlManagement.js"></script>
 		<script type="text/javascript" src="./scripts/message.js"></script>
 		<script type="text/javascript" src="./scripts/gpa.js"></script>
@@ -38,22 +41,32 @@ Light Gray: A2A4A3
 			<div id="columns">
 				<div id="gpabody" class="column" style="margin-left: 0.5vw;">
 					<p>Current GPA: <span id="gpa"></span></p>
-					<button id="homework" onclick="gpa.doHomework();">Do homework assignment</button>
-					<button id="alarmclock" onclick="gpa.getAlarmClock();" style="visibility:hidden;">$5-Buy alarm clock (improves your sleep schedule so you get to classes on time, improving GPA)</button>
+					<button id="gpaclick" onclick="gpa.doClick();">Do homework assignment</button>
+					<button id="gpaproduct" onclick="gpa.getProduct();" class="locked"></button>
+					<button id="gpaupgrade" onclick="gpa.getProductUpgrade();" class="locked"></button>
+					<button id="clickproduct" onclick="gpa.getClickProduct();" class="locked"></button>
+					<p id="gpastats" class="locked"></p>
 				</div>
 				
 				<div id="moneybody" class="column" style="visibility:hidden;">
 					<p>Current balance: $<span id="money"></span></p>
+					<p id="moneyquest"></p>
+					<button id="moneyproduct" onclick="money.getProduct();" class="locked"></button>
+					<button id="moneyupgrade" onclick="money.getProductUpgrade();" class="locked"></button>
+					<p id="moneystats" class="locked"></p>
 				</div>
 				
 				<div id="iqbody" class="column" style="visibility:hidden;">
 					<p>Your IQ is <span id="iq"></span></p>
-					<p>blah blah blah</p>
+					<p id="iqquest" style="visibility:hidden;"></p>
+					<button id="iqproduct" onclick="iq.getProduct();" class="locked"></button>
+					<button id="iqupgrade" onclick="iq.getProductUpgrade();" class="locked"></button>
+					<p id="iqstats" class="locked"></p>
 				</div>
 			</div>
 		
 			<!-- message box -->
-			<div id="message" style="visibility:hidden;"><button onclick='message.clearMessages();'>Clear messages</button><br>
+			<div id="message" class="locked"><button onclick='message.clearMessages();'>Clear messages</button><br>
 			</div>
 		</div>
 	</body>

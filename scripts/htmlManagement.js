@@ -10,5 +10,16 @@ var htmlManagement = {
 	},
 	disable : function(id) {
 		document.getElementById(id).disabled = "disabled";
+	},
+	setInnerHTML : function(id, value) {
+		document.getElementById(id).innerHTML = value;
+	},
+	deleteHTML : function(id) {
+		var e = document.getElementById(id);
+		e.parentNode.removeChild(e);
+	},
+	setAttribute : function(id, attribute, value) {
+		var e = document.getElementById(id);
+		e.setAttribute(attribute, value);
 	}
 };

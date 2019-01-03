@@ -18,6 +18,24 @@ p {
 }
 button {
 	margin: 5px;
+	background-color:#A2A4A3;
+	color: aqua;
+	border: none;
+	padding: 5px;
+}
+button:hover {
+	margin: 5px;
+	background-color: #565A5C;
+	color: white;
+	border: none;
+	padding: 5px;
+}
+button:disabled {
+	margin: 5px;
+	background-color:#A2A4A3;
+	color: white;
+	border: none;
+	padding: 5px;
 }
 #mainbody {
 	background-color: white;
@@ -28,6 +46,9 @@ button {
 	width: 33vw;
 	background-color: white;
 	text-align: left;
+}
+.locked {
+	visibility: hidden;
 }
 #message {
 	border-style: solid;

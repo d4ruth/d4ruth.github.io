@@ -1,6 +1,4 @@
 var main = {
-	
-	//Functions
 	onload : function() {
 		gpa.onload();
 		money.onload();
