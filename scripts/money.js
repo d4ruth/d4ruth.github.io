@@ -57,7 +57,7 @@ var money = {
 			htmlManagement.setInnerHTML("moneyquest", this.currentQuest.getQuestText());
 		}
 		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("moneystats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + '$' + this.moneyPerMilli + '/update');
+			htmlManagement.setInnerHTML("moneystats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + '$' + this.moneyPerMilli.toFixed(3) + '/update');
 		}
 		else {
 			alert("ERROR: no money.currentProduct found");

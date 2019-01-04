@@ -67,7 +67,7 @@ var gpa = {
 	displayGPA : function() {
 		htmlManagement.setInnerHTML("gpa", (this.numGPA / 100).toFixed(2));
 		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("gpastats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + this.GPApermilli + ' GPAs/update');
+			htmlManagement.setInnerHTML("gpastats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + this.GPApermilli.toFixed(3) + ' GPAs/update');
 		}
 		else {
 			alert("ERROR: no gpa.currentProduct found");

@@ -57,7 +57,7 @@ var iq = {
 			htmlManagement.setInnerHTML("iqquest", this.currentQuest.getQuestText());
 		}
 		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("iqstats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + this.iqPerMilli + ' IQ points/update');
+			htmlManagement.setInnerHTML("iqstats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + this.iqPerMilli.toFixed(3) + ' IQ points/update');
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
