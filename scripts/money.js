@@ -46,7 +46,7 @@ var money = {
 		if (this.moneyBacklog >= 1) {
 			var total = Math.trunc(this.moneyBacklog);
 			this.moneyBacklog -= total;
-			this.moneyBacklog += total;
+			this.numMoney += total;
 		}
 		this.displayMoney();
 	},
@@ -57,7 +57,7 @@ var money = {
 			htmlManagement.setInnerHTML("moneyquest", this.currentQuest.getQuestText());
 		}
 		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("moneystats", this.currentProduct.formalname + ': ' + this.numIncrementers + ', ' + '$' + this.moneyPerMilli + '/update');
+			htmlManagement.setInnerHTML("moneystats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + '$' + this.moneyPerMilli + '/update');
 		}
 		else {
 			alert("ERROR: no money.currentProduct found");

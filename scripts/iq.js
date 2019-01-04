@@ -46,7 +46,7 @@ var iq = {
 		if (this.iqBacklog >= 1) {
 			var total = Math.trunc(this.iqBacklog);
 			this.iqBacklog -= total;
-			this.iqBacklog += total;
+			this.numIq += total;
 		}
 		this.displayIq();
 	},
@@ -57,7 +57,7 @@ var iq = {
 			htmlManagement.setInnerHTML("iqquest", this.currentQuest.getQuestText());
 		}
 		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("iqstats", this.currentProduct.formalname + ': ' + this.numIncrementers + ', ' + this.iqPerMilli + ' IQ points/update');
+			htmlManagement.setInnerHTML("iqstats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + this.iqPerMilli + ' IQ points/update');
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
