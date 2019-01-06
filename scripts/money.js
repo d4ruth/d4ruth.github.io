@@ -142,6 +142,7 @@ var money = {
 			}
 			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
+			htmlManagement.appendText("moneyupgrade", ' [ACQUIRED]');
 		}
 		else {
 			alert("ERROR: no money.currentProduct found");

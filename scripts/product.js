@@ -74,10 +74,10 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 
 //GPA products
 var clock = new Product(500, 0, 'money', 0.002, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to classes on time, improving GPA');
-var planner = new Product(1000, 650, 'money', 0.005, 'planner', 'Planners', 'allows you to keep track of deadlines improving GPA');
+var planner = new Product(1000, 650, 'money', 0.005, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
 var filler5 = new Product(50, 0, 'iq', 0.005, 'filler5', 'filler5', 'filler5');
 
-var gpaProductStack = [filler5, planner, clock];
+var gpaProductStack = [planner, clock];
 
 //money products
 var filler = new Product(20, 10, 'iq', 0.005, 'filler thing for testing', 'filler thing for testing', 'filler thing for testing');
@@ -104,7 +104,7 @@ function ClickProduct(cost, unit, increment, name, buttontext, flavor) {
 	this.getUpgradeText = function() {
 		switch(this.unit) {
 			case 'money':
-				return '$' + (this.cost / 100) + ' - Buy ' + this.name + ' (' + this.flavor + ')';
+				return '$' + (this.cost / 100).toFixed(2) + ' - Buy ' + this.name + ' (' + this.flavor + ')';
 				break;
 			case 'iq':
 				return this.cost + ' IQ points - Buy ' + this.name + ' (' + this.flavor + ')';

@@ -21,5 +21,10 @@ var htmlManagement = {
 	setAttribute : function(id, attribute, value) {
 		var e = document.getElementById(id);
 		e.setAttribute(attribute, value);
+	},
+	appendText : function(id, value) {
+		var e = document.getElementById(id);
+		etext = e.innerHTML;
+		e.innerHTML = etext + value;
 	}
 };

@@ -109,6 +109,7 @@ var gpa = {
 			}
 			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("gpaproduct", this.currentProduct.getButtonText());
+			htmlManagement.appendText("gpaupgrade", ' [ACQUIRED]');
 		}
 		else {
 			alert("ERROR: no gpa.currentProduct found");
@@ -128,6 +129,7 @@ var gpa = {
 			}
 			this.clickLevel = this.nextClickProduct.increment;
 			htmlManagement.setInnerHTML("gpaclick", this.nextClickProduct.buttontext);
+			htmlManagement.appendText("clickproduct", ' [ACQUIRED]');
 			this.nextClickProduct = this.clickProducts.pop();
 		}
 		else {

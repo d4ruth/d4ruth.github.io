@@ -141,6 +141,7 @@ var iq = {
 			}
 			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
+			htmlManagement.appendText("iqupgrade", ' [ACQUIRED]');
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
