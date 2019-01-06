@@ -73,17 +73,17 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 }
 
 //GPA products
-var clock = new Product(500, 0, 'money', 0.002, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to classes on time, improving GPA');
-var planner = new Product(1000, 650, 'money', 0.005, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
-var filler5 = new Product(50, 0, 'iq', 0.005, 'filler5', 'filler5', 'filler5');
+var clock = new Product(500, 0, 'money', 0.001, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to classes on time, improving GPA');
+// var planner = new Product(1000, 650, 'money', 0.005, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
+var filler5 = new Product(50, 50, 'iq', 0.005, 'filler5', 'filler5', 'filler5');
 
-var gpaProductStack = [planner, clock];
+var gpaProductStack = [filler5, clock];
 
 //money products
-var filler = new Product(20, 10, 'iq', 0.005, 'filler thing for testing', 'filler thing for testing', 'filler thing for testing');
+var shovel = new Product(800, 400, 'money', 0.010, 'shovel', 'Snow shovels', 'allows you to do snow-shoveling work on the side, making a little money in the process. Each shovel allows you to shovel more driveways at once');
 var filler2 = new Product(30, 10, 'iq', 0.005, 'filler thing2 for testing', 'filler thing2 for testing', 'filler thing2 for testing');
 
-var moneyProductStack = [filler2, filler];
+var moneyProductStack = [filler2, shovel];
 
 //iq products
 var filler3 = new Product(30, 10, 'iq', 0.005, 'filler thing3 for testing', 'filler thing3 for testing', 'filler thing3 for testing');

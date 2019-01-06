@@ -45,13 +45,13 @@ function Quest(cost, unit, gain, message) {
 }
 
 //Money quests
-var firstMoneyQuest = new Quest(-99999950, 'gpa', 500, firstMessage);
-var secondQuest = new Quest(-99999900, 'gpa', 1000, secondMessage);
+var firstMoneyQuest = new Quest(-99999990, 'gpa', 500, firstMessage);
+var secondQuest = new Quest(-99999950, 'gpa', 1000, secondMessage);
 var thirdQuest = new Quest(-99999750, 'gpa', 2000, thirdMessage);
 
 var moneyQuestStack = [thirdQuest, secondQuest, firstMoneyQuest];
 
 //IQ quests
-var firstIqQuest = new Quest(-99999950, 'gpa', 100, "hi");
+var firstIqQuest = new Quest(-90000000, 'gpa', 100, "hi");
 
 var iqQuestStack = [firstIqQuest];
