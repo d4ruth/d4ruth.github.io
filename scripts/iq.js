@@ -139,7 +139,7 @@ var iq = {
 					this.numIq -= this.currentProduct.upgradeCost * this.numIncrementers;
 					break;
 			}
-			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
+			this.iqPerMilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
 			htmlManagement.appendText("iqupgrade", ' [ACQUIRED]');
 		}

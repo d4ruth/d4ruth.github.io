@@ -73,17 +73,19 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 }
 
 //GPA products
-var clock = new Product(500, 0, 'money', 0.001, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to classes on time, improving GPA');
+var watch = new Product(50, 0, 'money', 0.001, 'wrist watch', 'Wrist watches', 'lets you get to classes with mandatory attendance on time, improving GPA');
+var clock = new Product(230, 200, 'money', 0.005, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to your 8ams, improving GPA');
 // var planner = new Product(1000, 650, 'money', 0.005, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
 var filler5 = new Product(50, 50, 'iq', 0.005, 'filler5', 'filler5', 'filler5');
 
-var gpaProductStack = [filler5, clock];
+var gpaProductStack = [filler5, clock, watch];
 
 //money products
-var shovel = new Product(800, 400, 'money', 0.010, 'shovel', 'Snow shovels', 'allows you to do snow-shoveling work on the side, making a little money in the process. Each shovel allows you to shovel more driveways at once');
-var filler2 = new Product(30, 10, 'iq', 0.005, 'filler thing2 for testing', 'filler thing2 for testing', 'filler thing2 for testing');
+var piggybank = new Product(100, 0, 'money', 0.010, 'piggy bank', 'Piggy banks', 'lets you save up money');
+var shovel = new Product(250, 200, 'money', 0.030, 'shovel', 'Snow shovels', 'allows you to do snow-shoveling work on the side, making a little money in the process. Each shovel allows you to shovel more driveways at once');
+var gardentools = new Product(3000, 2400, 'money', 0.040, 'gardening tools', 'Sets of gardening tools', 'lets you help hippies grow their hippie food');
 
-var moneyProductStack = [filler2, shovel];
+var moneyProductStack = [gardentools, shovel, piggybank];
 
 //iq products
 var filler3 = new Product(30, 10, 'iq', 0.005, 'filler thing3 for testing', 'filler thing3 for testing', 'filler thing3 for testing');
@@ -133,8 +135,8 @@ function ClickProduct(cost, unit, increment, name, buttontext, flavor) {
 }
 
 //Click upgrades
-var nicepen = new ClickProduct(2000, 'money', 2, 'nice blue pen', 'Do homework (in nice blue ink)', 'your homework is now done in TA-pleasing blue ink, netting you more GPA per assignment');
+var nicepen = new ClickProduct(1500, 'money', 2, 'nice blue pen', 'Do homework (in nice blue ink)', 'your homework is now done in TA-pleasing blue ink, netting you more GPA per assignment');
 
-var clicker = new ClickProduct(6000, 'money', 8, 'clickers', 'Take clicker quiz', 'doing clicker quizzes is sure to raise your GPA!');
+var clicker = new ClickProduct(6000, 'money', 15, 'clickers', 'Take clicker quiz', 'doing clicker quizzes is sure to raise your GPA!');
 
 var gpaClickStack = [clicker, nicepen];

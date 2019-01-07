@@ -129,6 +129,7 @@ var money = {
 	},
 	
 	getProductUpgrade : function() {
+		htmlManagement.setInnerHTML("moneyupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
 		this.currentProduct = this.nextProduct;
 		this.nextProduct = this.products.pop();
 		if (this.currentProduct != null) {
@@ -140,7 +141,7 @@ var money = {
 					iq.numIq -= this.currentProduct.upgradeCost * this.numIncrementers;
 					break;
 			}
-			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
+			this.moneyPerMilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
 			htmlManagement.appendText("moneyupgrade", ' [ACQUIRED]');
 		}
