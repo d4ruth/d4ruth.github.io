@@ -89,6 +89,8 @@ var gpa = {
 					alert("ERROR: product unit must be either 'money' or 'iq'");
 					break;
 			}
+			this.currentProduct.increaseCost();
+			htmlManagement.setInnerHTML("gpaproduct", this.currentProduct.getButtonText());
 		}
 		else {
 			alert("ERROR: no gpa.currentProduct found");
@@ -101,10 +103,10 @@ var gpa = {
 		if (this.currentProduct != null) {
 			switch(this.currentProduct.unit) {
 				case 'money':
-					money.numMoney -= this.currentProduct.upgradeCost * this.numIncrementers;
+					money.numMoney -= this.currentProduct.upgradeCost;
 					break;
 				case 'iq':
-					iq.numIq -= this.currentProduct.upgradeCost * this.numIncrementers;
+					iq.numIq -= this.currentProduct.upgradeCost;
 					break;
 			}
 			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
@@ -153,12 +155,12 @@ var gpa = {
 		
 		//check product upgrade button
 		if (this.gotStats && this.nextProduct != null) {
-			if (!this.nextProduct.revealed && this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+			if (!this.nextProduct.revealed && this.nextProduct.canAffordUpgrade()) {
 				this.nextProduct.revealed = true;
 				htmlManagement.enable("gpaupgrade");
 				htmlManagement.setInnerHTML("gpaupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
 			}
-			else if (this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+			else if (this.nextProduct.canAffordUpgrade()) {
 				htmlManagement.enable("gpaupgrade");
 			}
 			else {
@@ -225,7 +227,7 @@ var gpa = {
 		}
 		if (!this.gotFirstUpgrade) {
 			if (this.nextProduct != null) {
-				if (this.gotStats && this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+				if (this.gotStats && this.nextProduct.canAffordUpgrade()) {
 					htmlManagement.setVisible("gpaupgrade");
 					this.gotFirstUpgrade = true;
 				}

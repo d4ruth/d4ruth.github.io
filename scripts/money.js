@@ -79,6 +79,8 @@ var money = {
 					alert("ERROR: product unit must be either 'money' or 'iq'");
 					break;
 			}
+			this.currentProduct.increaseCost();
+			htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
 		}
 		else {
 			alert("ERROR: no money.currentProduct found");
@@ -101,12 +103,12 @@ var money = {
 		
 		//check product upgrade button
 		if (this.gotStats && this.nextProduct != null) {
-			if (!this.nextProduct.revealed && this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+			if (!this.nextProduct.revealed && this.nextProduct.canAffordUpgrade()) {
 				this.nextProduct.revealed = true;
 				htmlManagement.enable("moneyupgrade");
 				htmlManagement.setInnerHTML("moneyupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
 			}
-			else if (this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+			else if (this.nextProduct.canAffordUpgrade()) {
 				htmlManagement.enable("moneyupgrade");
 			}
 			else {
@@ -129,16 +131,15 @@ var money = {
 	},
 	
 	getProductUpgrade : function() {
-		htmlManagement.setInnerHTML("moneyupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
 		this.currentProduct = this.nextProduct;
 		this.nextProduct = this.products.pop();
 		if (this.currentProduct != null) {
 			switch(this.currentProduct.unit) {
 				case 'money':
-					this.numMoney -= this.currentProduct.upgradeCost * this.numIncrementers;
+					this.numMoney -= this.currentProduct.upgradeCost;
 					break;
 				case 'iq':
-					iq.numIq -= this.currentProduct.upgradeCost * this.numIncrementers;
+					iq.numIq -= this.currentProduct.upgradeCost;
 					break;
 			}
 			this.moneyPerMilli = this.numIncrementers * this.currentProduct.increment;
@@ -177,7 +178,7 @@ var money = {
 		}
 		if (!this.gotFirstUpgrade) {
 			if (this.nextProduct != null) {
-				if (this.gotStats && this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+				if (this.gotStats && this.nextProduct.canAffordUpgrade()) {
 					htmlManagement.setVisible("moneyupgrade");
 					this.gotFirstUpgrade = true;
 				}

@@ -28,16 +28,20 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 	this.getUpgradeText = function(newname, newunit, upgradeCost) {
 		switch(newunit) {
 			case 'money':
-				return 'Upgrade ' + this.name + ' to ' + newname + ' ($' + ((upgradeCost / 100)).toFixed(2) + ' per ' + this.name + ')';
+				return 'Upgrade ' + this.name + ' to ' + newname + ' ($' + ((upgradeCost / 100)).toFixed(2) + ')';
 				break;
 			case 'iq':
-				return 'Upgrade ' + this.name + ' to ' + newname + ' (' + upgradeCost + ' IQ points per ' + this.name + ')';
+				return 'Upgrade ' + this.name + ' to ' + newname + ' (' + upgradeCost + ')';
 				break;
 			default:
 				alert("ERROR: product unit must be 'money' or 'iq'");
 				return -1;
 				break;
 		}
+	};
+	
+	this.increaseCost = function() {
+		this.cost = Math.floor(this.cost * 1.1);
 	};
 	
 	//affordability checks for button enablement/disablement
@@ -56,13 +60,13 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 		}
 	};
 	
-	this.canAffordUpgrade = function(numincrementers) {
+	this.canAffordUpgrade = function() {
 		switch(this.unit) {
 			case 'money':
-				return money.numMoney >= this.upgradeCost * numincrementers;
+				return money.numMoney >= this.upgradeCost;
 				break;
 			case 'iq':
-				return iq.numIq >= this.upgradeCost * numincrementers;
+				return iq.numIq >= this.upgradeCost;
 				break;
 			default:
 				alert("ERROR: product unit must be 'money' or 'iq'");

@@ -79,6 +79,8 @@ var iq = {
 					alert("ERROR: product unit must be either 'money' or 'iq'");
 					break;
 			}
+			this.currentProduct.increaseCost();
+			htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
@@ -101,12 +103,12 @@ var iq = {
 		
 		//check product upgrade button
 		if (this.gotStats && this.nextProduct != null) {
-			if (!this.nextProduct.revealed && this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+			if (!this.nextProduct.revealed && this.nextProduct.canAffordUpgrade()) {
 				this.nextProduct.revealed = true;
 				htmlManagement.enable("iqupgrade");
 				htmlManagement.setInnerHTML("iqupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
 			}
-			else if (this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+			else if (this.nextProduct.canAffordUpgrade()) {
 				htmlManagement.enable("iqupgrade");
 			}
 			else {
@@ -133,10 +135,10 @@ var iq = {
 		if (this.currentProduct != null) {
 			switch(this.currentProduct.unit) {
 				case 'money':
-					money.numMoney -= this.currentProduct.upgradeCost * this.numIncrementers;
+					money.numMoney -= this.currentProduct.upgradeCost;
 					break;
 				case 'iq':
-					this.numIq -= this.currentProduct.upgradeCost * this.numIncrementers;
+					this.numIq -= this.currentProduct.upgradeCost;
 					break;
 			}
 			this.iqPerMilli = this.numIncrementers * this.currentProduct.increment;
@@ -175,7 +177,7 @@ var iq = {
 		}
 		if (!this.gotFirstUpgrade) {
 			if (this.nextProduct != null) {
-				if (this.gotStats && this.nextProduct.canAffordUpgrade(this.numIncrementers)) {
+				if (this.gotStats && this.nextProduct.canAffordUpgrade()) {
 					htmlManagement.setVisible("iqupgrade");
 					this.gotFirstUpgrade = true;
 				}
