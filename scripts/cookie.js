@@ -17,5 +17,6 @@ var mycookie = {
 	readCookies : function() {
 		this.setCookie('hello','goodbye',10);
 		this.setCookie('foo','bar',10);
+		this.deleteCookie('hello');
 	},
 };
