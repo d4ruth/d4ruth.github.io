@@ -159,7 +159,7 @@ var iq = {
 	checkFlags : function() {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
-				if (this.currentProduct.canAffordPurchase()) {
+				if (this.currentQuest == thirdIqQuest && this.currentProduct.canAffordPurchase()) {
 					htmlManagement.setVisible("iqproduct");
 					this.gotFirstProduct = true;
 					this.currentProduct.revealed = true;

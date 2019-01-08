@@ -8,4 +8,6 @@ fourthMessage = "(don't tell Dad, but here's $5. I snuck to the mailbox while he
 
 fifthMessage = "Dearest child,<br><br>You've saved up a little bit of money, and this pleases me. I believe living frugally is one of the most honorable paths in life. For your dedication to a minimalist, non-wasteful life, I've bestowed upon you $0.03.<br><br>With great sincerity,<br>Father"
 
-sixthMessage = "Hey roommate, I noticed you've been doing your homework a bunch... I've been having some trouble myself. Mind doing some of my homework for me? I'll pay ya."
+sixthMessage = "Hey roommate, I noticed you've been doing your homework a bunch, and pretty efficiently too... I've been having some trouble with mine. Mind doing some of my homework for me? I'll pay ya."
+
+brainpillmessage = "Greetings from CerebInc!<br><br>As part of our reachout program, we are sending free samples of our new FocusPills to select students, and we believe you would be a good fit for our product. Our FocusPills increase concentration and problem-solving abilities and are used by students the world over (particularly around December and May). We've included enough in this sample to boost you by 30 IQ points. If you want more, visit our website at www.FocusPills.com!<br><br><i>This is an automatically-sent email. Please do not reply</i>"
