@@ -31,7 +31,7 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 				return 'Upgrade ' + this.name + ' to ' + newname + ' ($' + ((upgradeCost / 100)).toFixed(2) + ')';
 				break;
 			case 'iq':
-				return 'Upgrade ' + this.name + ' to ' + newname + ' (' + upgradeCost + ')';
+				return 'Upgrade ' + this.name + ' to ' + newname + ' (' + upgradeCost + ' IQ points)';
 				break;
 			default:
 				alert("ERROR: product unit must be 'money' or 'iq'");
@@ -41,7 +41,7 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 	};
 	
 	this.increaseCost = function() {
-		this.cost = Math.floor(this.cost * 1.1);
+		this.cost = Math.ceil(this.cost * 1.1);
 	};
 	
 	//affordability checks for button enablement/disablement
@@ -78,15 +78,15 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 
 //GPA products
 var watch = new Product(50, 0, 'money', 0.001, 'wrist watch', 'Wrist watches', 'lets you get to classes with mandatory attendance on time, improving GPA');
-var clock = new Product(230, 200, 'money', 0.005, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to your 8ams, improving GPA');
+var clock = new Product(230, 500, 'money', 0.005, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to your 8ams, improving GPA');
 // var planner = new Product(1000, 650, 'money', 0.005, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
 var filler5 = new Product(50, 50, 'iq', 0.005, 'filler5', 'filler5', 'filler5');
 
 var gpaProductStack = [filler5, clock, watch];
 
 //money products
-var piggybank = new Product(100, 0, 'money', 0.010, 'piggy bank', 'Piggy banks', 'lets you save up money');
-var shovel = new Product(250, 200, 'money', 0.030, 'shovel', 'Snow shovels', 'allows you to do snow-shoveling work on the side, making a little money in the process. Each shovel allows you to shovel more driveways at once');
+var piggybank = new Product(100, 0, 'money', 0.010, 'piggy bank', 'Piggy banks', 'lets you save up the spare change you find on the ground while walking from class to class');
+var shovel = new Product(250, 500, 'money', 0.030, 'shovel', 'Snow shovels', 'allows you to do snow-shoveling work on the side, making a little money in the process. Each shovel allows you to shovel more driveways at once');
 var gardentools = new Product(3000, 2400, 'money', 0.040, 'gardening tools', 'Sets of gardening tools', 'lets you help hippies grow their hippie food');
 
 var moneyProductStack = [gardentools, shovel, piggybank];

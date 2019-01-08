@@ -7,3 +7,5 @@ thirdMessage = "Here's another $2, sweetie! I wish I could send more but Dad thi
 fourthMessage = "(don't tell Dad, but here's $5. I snuck to the mailbox while he wasn't looking. Okay, NOW I'm done sending money ;))<br><br>With sneakiness ;o,<br>Ninja-Mom"
 
 fifthMessage = "Dearest child,<br><br>You've saved up a little bit of money, and this pleases me. I believe living frugally is one of the most honorable paths in life. For your dedication to a minimalist, non-wasteful life, I've bestowed upon you $0.03.<br><br>With great sincerity,<br>Father"
+
+sixthMessage = "Hey roommate, I noticed you've been doing your homework a bunch... I've been having some trouble myself. Mind doing some of my homework for me? I'll pay ya."

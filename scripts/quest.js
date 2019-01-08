@@ -49,11 +49,12 @@ var firstMoneyQuest = new Quest(-99999990, 'gpa', 50, firstMessage);
 var secondQuest = new Quest(-99999950, 'gpa', 100, secondMessage);
 var thirdQuest = new Quest(-99999850, 'gpa', 200, thirdMessage);
 var fourthQuest = new Quest(-99999700, 'gpa', 500, fourthMessage);
-var fifthQuest = new Quest(1500, 'money', 3, fifthMessage);
+var fifthQuest = new Quest(1000, 'money', 3, fifthMessage);
+var sixthQuest = new Quest(-99998500, 'gpa', 0, sixthMessage);
 
-var moneyQuestStack = [fifthQuest, fourthQuest, thirdQuest, secondQuest, firstMoneyQuest];
+var moneyQuestStack = [sixthQuest, fifthQuest, fourthQuest, thirdQuest, secondQuest, firstMoneyQuest];
 
 //IQ quests
-var firstIqQuest = new Quest(-90000000, 'gpa', 100, "hi");
+var firstIqQuest = new Quest(-99998500, 'gpa', 100, sixthMessage);
 
 var iqQuestStack = [firstIqQuest];
