@@ -4,6 +4,7 @@ var main = {
 		money.onload();
 		iq.onload();
 		message.onload();
+		alert(document.cookie);
 		window.setInterval(this.update.bind(this), 1);
 	},
 	update : function() {
