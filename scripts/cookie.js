@@ -18,6 +18,6 @@ var mycookie = {
 		this.setCookie('pewpewpew','goodbye',10);
 		this.setCookie('foo','bar',10);
 		this.deleteCookie('hello');
-		this.setCookie('goodbye','hello',10);
-	},
+		this.setCookie('blah','halb',10);
+	}
 };
