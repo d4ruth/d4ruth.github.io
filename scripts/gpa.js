@@ -116,8 +116,9 @@ var gpa = {
 			this.clickLevel = this.nextClickProduct.increment;
 			htmlManagement.setInnerHTML("gpaclick", this.nextClickProduct.buttontext);
 			htmlManagement.appendText("clickproduct", ' [ACQUIRED]');
+			this.currentClickProduct = this.nextClickProduct;
 			this.nextClickProduct = this.clickProducts.pop();
-			this.clickProductlevel += 1;
+			this.clickProductLevel += 1;
 		}
 		else {
 			alert("ERROR: no gpa.nextClickProduct found");
@@ -163,7 +164,8 @@ var gpa = {
 				htmlManagement.enable("clickproduct");
 				htmlManagement.setInnerHTML("clickproduct", this.nextClickProduct.getUpgradeText());
 			}
-			else if (this.nextClickProduct.canAffordPurchase()) {htmlManagement.enable("clickproduct");
+			else if (this.nextClickProduct.canAffordPurchase()) {
+				htmlManagement.enable("clickproduct");
 			}
 			else {
 				htmlManagement.disable("clickproduct");
