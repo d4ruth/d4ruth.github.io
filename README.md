@@ -1,4 +1,4 @@
-**Link to candybox sourcecode: https://github.com/candybox2/candybox**
+**v2**
 
 # **HOW TO CREATE CONTENT FOR THIS THING**
 
@@ -16,9 +16,9 @@ Note that the player will not get to see the next product in line for upgrading 
 
 Products have the following arguments:
 
-* cost - how much to be spent to acquire it
+* cost - how much to be spent to acquire it (every time a product is bought, its cost increases by ceilinged 10%)
 
-* upgradeCost - how much needs to be spent per old product to upgrade to this new product
+* upgradeCost - how much needs to be spent to upgrade to the next product on the stack
 
 * unit - which unit is spent to acquire it/upgrade to it (either money or iq, *never* gpa)
 
@@ -33,7 +33,7 @@ Products have the following arguments:
 # ClickProducts
 Like products, but exclusively for the gpa column, which is the only column with a "clicker" button. These products upgrade the clicker button to produce more gpa per click. ClickProducts function akin to normal Products that only have the "upgrade" option (since clicking is essentially this product's "purchasing"). Like normal products, these are stored by the gpa column in a stack.
 
-**The clickproduct stack must have a minimum of 1 item in it**
+**The clickproduct stack must have a minimum of 2 items in it**
 
 ClickProducts have the following arguments:
 
@@ -67,4 +67,4 @@ Quests have the following arguments:
 * message - the text message the player receives when the quest is complete
 
 # Adding content
-This has been set up so that *no one has to look at anything other than product.js, quest.js, and messages.js to create content*. **Don't muck about in anything else unless you think you've found a bug.** To add a product or clickproduct, go to product.js, initialize some new products, and add them to the desired stack. To create a new quest, go to quest.js and do likewise. Store messages in messages.js.
+This has been set up so that *no one has to look at anything other than products.js, quests.js, and messages.js to create content*. **Don't muck about in anything else unless you think you've found a bug.** To add a product or clickproduct, go to products.js, initialize some new products, and add them to the desired stack. To create a new quest, go to quests.js and do likewise. Store messages in messages.js.
