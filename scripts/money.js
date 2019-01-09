@@ -22,20 +22,6 @@ var money = {
 		this.currentQuest = this.quests.pop();
 		this.currentProduct = this.products.pop();
 		this.nextProduct = this.products.pop();
-		
-		//initialize upgrade button text
-		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
-			if (this.nextProduct != null) {
-				htmlManagement.setInnerHTML("moneyupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
-			}
-			else {
-				alert("ERROR: no money.nextProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
-			}
-		}
-		else {
-			alert("ERROR: no money.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
-		}
 		this.displayMoney();
 	},
 	
@@ -54,6 +40,7 @@ var money = {
 	
 	displayMoney : function() {
 		htmlManagement.setInnerHTML("money", (this.numMoney / 100).toFixed(2));
+		htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
 		if (this.currentQuest != null) {
 			htmlManagement.setInnerHTML("moneyquest", this.currentQuest.getQuestText());
 		}
@@ -156,10 +143,9 @@ var money = {
 	
 	//Flags
 	gotFirstProduct : false,
-	gotFirstProductFunc : function(product) {
+	gotFirstProductFunc : function() {
 		htmlManagement.setVisible("moneyproduct");
 		this.gotFirstProduct = true;
-		product.revealed = true;
 	},
 	
 	gotStats : false,
@@ -185,7 +171,7 @@ var money = {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
 				if (this.currentProduct.canAffordPurchase()) {
-					this.gotFirstProductFunc(this.currentProduct);
+					this.gotFirstProductFunc();
 				}
 			}
 			else {

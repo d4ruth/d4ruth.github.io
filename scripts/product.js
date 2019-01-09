@@ -140,8 +140,10 @@ function ClickProduct(cost, unit, increment, name, buttontext, flavor) {
 }
 
 //Click upgrades
+var homework = new ClickProduct(0, 'money', 0, '', 'Do a homework assignment', '');
+
 var nicepen = new ClickProduct(1000, 'money', 5, 'nice blue pen', 'Do homework (in nice blue ink)', 'your homework is now done in TA-pleasing blue ink, netting you more GPA per assignment');
 
 var clicker = new ClickProduct(6000, 'money', 40, 'clickers', 'Take clicker quiz', 'doing clicker quizzes is sure to raise your GPA!');
 
-var gpaClickStack = [clicker, nicepen];
+var gpaClickStack = [clicker, nicepen, homework];

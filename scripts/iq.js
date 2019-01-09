@@ -22,20 +22,6 @@ var iq = {
 		this.currentQuest = this.quests.pop();
 		this.currentProduct = this.products.pop();
 		this.nextProduct = this.products.pop();
-		
-		//initialize upgrade button text
-		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
-			if (this.nextProduct != null) {
-				htmlManagement.setInnerHTML("iqupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
-			}
-			else {
-				alert("ERROR: no iq.nextProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
-			}
-		}
-		else {
-			alert("ERROR: no iq.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
-		}
 		this.displayIq();
 	},
 	
@@ -54,6 +40,7 @@ var iq = {
 	
 	displayIq : function() {
 		htmlManagement.setInnerHTML("iq", this.numIq);
+		htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
 		if (this.currentQuest != null) {
 			htmlManagement.setInnerHTML("iqquest", this.currentQuest.getQuestText());
 		}
@@ -155,10 +142,9 @@ var iq = {
 	
 	//Flags
 	gotFirstProduct : false,
-	gotFirstProductFunc : function(product) {
+	gotFirstProductFunc : function() {
 		htmlManagement.setVisible("iqproduct");
 		this.gotFirstProduct = true;
-		product.revealed = true;
 	},
 	
 	gotStats : false,
@@ -184,7 +170,7 @@ var iq = {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
 				if (this.currentQuest == thirdIqQuest && this.currentProduct.canAffordPurchase()) {
-					this.gotFirstProductFunc(this.currentProduct);
+					this.gotFirstProductFunc();
 				}
 			}
 			else {

@@ -1,7 +1,6 @@
 var saveManagement = {
+	
 	save : function() {
-		alert("saving...");
-		
 		var data = {
 			gpanum : gpa.numGPA,
 			gpaback : gpa.GPAbacklog,
@@ -52,17 +51,15 @@ var saveManagement = {
 		}
 		
 		var json = JSON.stringify(data);
-		alert(json);
 		mycookie.setCookie('savedata',window.btoa(json),365);
-		
 	},
+	
+	
 	load : function() {
-		alert("entering load...");
 		cookies = mycookie.readCookies();
 		savedata = cookies[0].substring(9);
 		
 		if (savedata != '') {
-			alert("found data and loading...");
 			var data = JSON.parse(window.atob(cookies[0].substr(9)));
 			gpa.numGPA = data.gpanum;
 			gpa.GPAbacklog = data.gpaback;
@@ -107,23 +104,17 @@ var saveManagement = {
 				iqQuestStack.pop();
 			}
 			
-			if (data.gpaf1) {
-				gpa.gotFirstProductFunc(gpaProductStack[gpaProductStack.length-1]);
-			}
+			if (data.gpaf1) {gpa.gotFirstProductFunc();}
 			if (data.gpaf2) {gpa.gotStatsFunc();}
 			if (data.gpaf3) {gpa.gotFirstClickProductFunc();}
 			if (data.gpaf4) {gpa.gotFirstUpgradeFunc();}
 			
-			if (data.moneyf1) {
-				money.gotFirstProductFunc(moneyProductStack[moneyProductStack.length-1]);
-			}
+			if (data.moneyf1) {money.gotFirstProductFunc();}
 			if (data.moneyf2) {money.gotStatsFunc();}
 			if (data.moneyf3) {money.gotFirstUpgradeFunc();}
 			if (data.moneyf4) {money.gotSecondQuestFunc();}
 			
-			if (data.iqf1) {
-				iq.gotFirstProductFunc(iqProductStack[iqProductStack.length-1]);
-			}
+			if (data.iqf1) {iq.gotFirstProductFunc();}
 			if (data.iqf2) {iq.gotStatsFunc();}
 			if (data.iqf3) {iq.gotFirstUpgradeFunc();}
 			if (data.iqf4) {iq.gotSecondQuestFunc();}
@@ -144,8 +135,8 @@ var saveManagement = {
 			message.messages = data.messages;
 		}
 	},
+	
 	restart : function() {
-		alert(mycookie.readCookies());
 		mycookie.deleteCookie('savedata');
 		location.reload();
 	}

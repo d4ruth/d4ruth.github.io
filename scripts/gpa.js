@@ -16,35 +16,15 @@ var gpa = {
 	
 	//Click products (like Products, this is a STACK)
 	clickProducts : gpaClickStack,
+	currentClickProduct : null,
 	nextClickProduct : null,
 	
 	//Functions
 	onload : function() {
 		this.currentProduct = this.products.pop();
 		this.nextProduct = this.products.pop();
+		this.currentClickProduct = this.clickProducts.pop();
 		this.nextClickProduct = this.clickProducts.pop();
-		
-		//initialize upgrade button text
-		if (this.currentProduct != null) {
-			htmlManagement.setInnerHTML("gpaproduct", this.currentProduct.getButtonText());
-			if (this.nextProduct != null) {
-				htmlManagement.setInnerHTML("gpaupgrade", this.currentProduct.getUpgradeText(this.nextProduct.name, this.nextProduct.unit, this.nextProduct.upgradeCost));
-			}
-			else {
-				alert("ERROR: no gpa.nextProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
-			}
-		}
-		else {
-			alert("ERROR: no gpa.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
-		}
-		
-		//initialize click upgrade button text
-		if (this.nextClickProduct != null) {
-			htmlManagement.setInnerHTML("clickproduct", this.nextClickProduct.getUpgradeText());
-		}
-		else {
-			alert("ERROR: no gpa.nextClickProduct found on load. The GPA column must start with nextClickProduct initialized");
-		}
 		this.displayGPA();
 	},
 	
@@ -67,6 +47,8 @@ var gpa = {
 	
 	displayGPA : function() {
 		htmlManagement.setInnerHTML("gpa", (this.numGPA / 100).toFixed(2));
+		htmlManagement.setInnerHTML("gpaclick",this.currentClickProduct.buttontext);
+		htmlManagement.setInnerHTML("gpaproduct", this.currentProduct.getButtonText());
 		if (this.currentProduct != null) {
 			htmlManagement.setInnerHTML("gpastats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + this.GPApermilli.toFixed(3) + ' GPAs/update');
 		}
@@ -194,10 +176,9 @@ var gpa = {
 	
 	//Flags
 	gotFirstProduct : false,
-	gotFirstProductFunc : function(product) {
+	gotFirstProductFunc : function() {
 		htmlManagement.setVisible("gpaproduct");
 		this.gotFirstProduct = true;
-		product.revealed = true;
 	},
 	
 	gotStats : false,
@@ -222,7 +203,7 @@ var gpa = {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
 				if (this.currentProduct.canAffordPurchase()) {
-					this.gotFirstProductFunc(this.currentProduct);
+					this.gotFirstProductFunc();
 				}
 			}
 			else {
