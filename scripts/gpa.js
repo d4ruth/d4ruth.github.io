@@ -6,6 +6,8 @@ var gpa = {
 	GPApermilli : 0.0,
 	numIncrementers : 0,
 	clickLevel : 1,
+	productLevel : 0,
+	clickProductLevel : 0,
 	
 	//Products (NOTE: this is a STACK, so products are listed in reverse order of acquisition 
 	products : gpaProductStack,
@@ -20,7 +22,6 @@ var gpa = {
 	onload : function() {
 		this.currentProduct = this.products.pop();
 		this.nextProduct = this.products.pop();
-		
 		this.nextClickProduct = this.clickProducts.pop();
 		
 		//initialize upgrade button text
@@ -112,6 +113,7 @@ var gpa = {
 			this.GPApermilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("gpaproduct", this.currentProduct.getButtonText());
 			htmlManagement.appendText("gpaupgrade", ' [ACQUIRED]');
+			this.productLevel += 1;
 		}
 		else {
 			alert("ERROR: no gpa.currentProduct found");
@@ -133,6 +135,7 @@ var gpa = {
 			htmlManagement.setInnerHTML("gpaclick", this.nextClickProduct.buttontext);
 			htmlManagement.appendText("clickproduct", ' [ACQUIRED]');
 			this.nextClickProduct = this.clickProducts.pop();
+			this.clickProductlevel += 1;
 		}
 		else {
 			alert("ERROR: no gpa.nextClickProduct found");
@@ -191,34 +194,52 @@ var gpa = {
 	
 	//Flags
 	gotFirstProduct : false,
+	gotFirstProductFunc : function(product) {
+		htmlManagement.setVisible("gpaproduct");
+		this.gotFirstProduct = true;
+		product.revealed = true;
+	},
+	
 	gotStats : false,
+	gotStatsFunc : function() {
+		htmlManagement.setVisible("gpastats");
+		this.gotStats = true;
+	},
+	
 	gotFirstClickProduct : false,
+	gotFirstClickProductFunc : function() {
+		htmlManagement.setVisible("clickproduct");
+		this.gotFirstClickProduct = true;
+	},
+	
 	gotFirstUpgrade : false,
+	gotFirstUpgradeFunc : function() {
+		htmlManagement.setVisible("gpaupgrade");
+		this.gotFirstUpgrade = true;
+	},
 	
 	checkFlags : function() {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
 				if (this.currentProduct.canAffordPurchase()) {
-					htmlManagement.setVisible("gpaproduct");
-					this.gotFirstProduct = true;
-					this.currentProduct.revealed = true;
+					this.gotFirstProductFunc(this.currentProduct);
 				}
 			}
 			else {
 				alert("ERROR: no gpa.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
 			}
 		}
+		
 		if (!this.gotStats) {
 			if (this.numIncrementers > 0) { 
-				htmlManagement.setVisible("gpastats");
-				this.gotStats = true;
+				this.gotStatsFunc();
 			}
 		}
+		
 		if (!this.gotFirstClickProduct) {
 			if (this.nextClickProduct != null) {
 				if (this.nextClickProduct.canAffordPurchase()) {
-					htmlManagement.setVisible("clickproduct");
-					this.gotFirstClickProduct = true;
+					this.gotFirstClickProductFunc();
 				}
 			}
 			else {
@@ -228,8 +249,7 @@ var gpa = {
 		if (!this.gotFirstUpgrade) {
 			if (this.nextProduct != null) {
 				if (this.gotStats && this.nextProduct.canAffordUpgrade()) {
-					htmlManagement.setVisible("gpaupgrade");
-					this.gotFirstUpgrade = true;
+					this.gotFirstUpgradeFunc();
 				}
 			}
 			else {

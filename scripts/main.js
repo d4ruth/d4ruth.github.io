@@ -1,11 +1,10 @@
 var main = {
 	onload : function() {
+		saveManagement.load();
 		gpa.onload();
 		money.onload();
 		iq.onload();
 		message.onload();
-		alert(document.cookie);
-		alert('is github pages even updating jesus fucking christ');
 		window.setInterval(this.update.bind(this), 1);
 	},
 	update : function() {

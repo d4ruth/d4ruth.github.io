@@ -5,6 +5,8 @@ var iq = {
 	iqBacklog : 0.00,
 	iqPerMilli : 0.00,
 	numIncrementers : 0,
+	productLevel : 0,
+	questLevel : 0,
 	
 	//Quests
 	quests: iqQuestStack,
@@ -18,7 +20,6 @@ var iq = {
 	//Functions
 	onload : function() {
 		this.currentQuest = this.quests.pop();
-		
 		this.currentProduct = this.products.pop();
 		this.nextProduct = this.products.pop();
 		
@@ -126,6 +127,7 @@ var iq = {
 				this.numIq += this.currentQuest.gain;
 				message.addMessage(this.currentQuest.message);
 				this.currentQuest = this.quests.pop();
+				this.questLevel += 1;
 			}
 		}
 	},
@@ -144,6 +146,7 @@ var iq = {
 			this.iqPerMilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("iqproduct", this.currentProduct.getButtonText());
 			htmlManagement.appendText("iqupgrade", ' [ACQUIRED]');
+			this.productLevel += 1;
 		}
 		else {
 			alert("ERROR: no iq.currentProduct found");
@@ -152,34 +155,53 @@ var iq = {
 	
 	//Flags
 	gotFirstProduct : false,
+	gotFirstProductFunc : function(product) {
+		htmlManagement.setVisible("iqproduct");
+		this.gotFirstProduct = true;
+		product.revealed = true;
+	},
+	
 	gotStats : false,
+	gotStatsFunc : function() {
+		htmlManagement.setVisible("iqstats");
+		this.gotStats = true;
+	},
+	
 	gotFirstUpgrade : false,
+	gotFirstUpgradeFunc : function() {
+		htmlManagement.setVisible("iqupgrade");
+		this.gotFirstUpgrade = true;
+	},
+	
 	gotSecondQuest : false,
+	gotSecondQuestFunc : function() {
+		htmlManagement.setVisible("iqbody");
+		this.gotSecondQuest = true;
+		htmlManagement.setVisible("message");
+	},
 	
 	checkFlags : function() {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
 				if (this.currentQuest == thirdIqQuest && this.currentProduct.canAffordPurchase()) {
-					htmlManagement.setVisible("iqproduct");
-					this.gotFirstProduct = true;
-					this.currentProduct.revealed = true;
+					this.gotFirstProductFunc(this.currentProduct);
 				}
 			}
 			else {
 				alert("ERROR: no iq.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
 			}
 		}
+		
 		if (!this.gotStats) {
 			if (this.numIncrementers > 0) { 
-				htmlManagement.setVisible("iqstats");
-				this.gotStats = true;
+				this.gotStatsFunc();
 			}
 		}
+		
 		if (!this.gotFirstUpgrade) {
 			if (this.nextProduct != null) {
 				if (this.gotStats && this.nextProduct.canAffordUpgrade()) {
-					htmlManagement.setVisible("iqupgrade");
-					this.gotFirstUpgrade = true;
+					this.gotFirstUpgradeFunc();
 				}
 			}
 			else {
@@ -188,9 +210,7 @@ var iq = {
 		}
 		if (!this.gotSecondQuest) {
 			if (this.currentQuest != firstIqQuest) {
-				htmlManagement.setVisible("iqbody");
-				this.gotSecondQuest = true;
-				htmlManagement.setVisible("message");
+				this.gotSecondQuestFunc();
 			}
 		}
 	}

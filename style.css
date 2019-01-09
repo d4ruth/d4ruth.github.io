@@ -37,6 +37,13 @@ button:disabled {
 	border: none;
 	padding: 5px;
 }
+.savebutton {
+	background-color: black;
+	color: white;
+	border: none;
+	margin: 10px;
+	padding: 0px;
+}
 #mainbody {
 	background-color: white;
 	text-align: left;

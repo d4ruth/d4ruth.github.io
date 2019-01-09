@@ -26,5 +26,8 @@ var htmlManagement = {
 		var e = document.getElementById(id);
 		etext = e.innerHTML;
 		e.innerHTML = etext + value;
+	},
+	getInnerHTML : function(id) {
+		return document.getElementById(id).innerHTML;
 	}
 };

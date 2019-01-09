@@ -5,6 +5,8 @@ var money = {
 	moneyBacklog : 0.00,
 	moneyPerMilli : 0.00,
 	numIncrementers : 0,
+	productLevel : 0,
+	questLevel : 0,
 	
 	//Quests
 	quests: moneyQuestStack,
@@ -18,7 +20,6 @@ var money = {
 	//Functions
 	onload : function() {
 		this.currentQuest = this.quests.pop();
-		
 		this.currentProduct = this.products.pop();
 		this.nextProduct = this.products.pop();
 		
@@ -126,6 +127,7 @@ var money = {
 				this.numMoney += this.currentQuest.gain;
 				message.addMessage(this.currentQuest.message);
 				this.currentQuest = this.quests.pop();
+				this.questLevel += 1;
 			}
 		}
 	},
@@ -145,6 +147,7 @@ var money = {
 			this.moneyPerMilli = this.numIncrementers * this.currentProduct.increment;
 			htmlManagement.setInnerHTML("moneyproduct", this.currentProduct.getButtonText());
 			htmlManagement.appendText("moneyupgrade", ' [ACQUIRED]');
+			this.productLevel += 1;
 		}
 		else {
 			alert("ERROR: no money.currentProduct found");
@@ -153,34 +156,53 @@ var money = {
 	
 	//Flags
 	gotFirstProduct : false,
+	gotFirstProductFunc : function(product) {
+		htmlManagement.setVisible("moneyproduct");
+		this.gotFirstProduct = true;
+		product.revealed = true;
+	},
+	
 	gotStats : false,
+	gotStatsFunc : function() {
+		htmlManagement.setVisible("moneystats");
+		this.gotStats = true;
+	},
+	
 	gotFirstUpgrade : false,
+	gotFirstUpgradeFunc : function() {
+		htmlManagement.setVisible("moneyupgrade");
+		this.gotFirstUpgrade = true;
+	},
+	
 	gotSecondQuest : false,
+	gotSecondQuestFunc : function() {
+		htmlManagement.setVisible("moneybody");
+		this.gotSecondQuest = true;
+		htmlManagement.setVisible("message");
+	},
 	
 	checkFlags : function() {
 		if (!this.gotFirstProduct) {
 			if (this.currentProduct != null) {
 				if (this.currentProduct.canAffordPurchase()) {
-					htmlManagement.setVisible("moneyproduct");
-					this.gotFirstProduct = true;
-					this.currentProduct.revealed = true;
+					this.gotFirstProductFunc(this.currentProduct);
 				}
 			}
 			else {
 				alert("ERROR: no money.currentProduct found on load. Every column must start with at least currentProduct and nextProduct initialized");
 			}
 		}
+		
 		if (!this.gotStats) {
 			if (this.numIncrementers > 0) { 
-				htmlManagement.setVisible("moneystats");
-				this.gotStats = true;
+				this.gotStatsFunc();
 			}
 		}
+		
 		if (!this.gotFirstUpgrade) {
 			if (this.nextProduct != null) {
 				if (this.gotStats && this.nextProduct.canAffordUpgrade()) {
-					htmlManagement.setVisible("moneyupgrade");
-					this.gotFirstUpgrade = true;
+					this.gotFirstUpgradeFunc();
 				}
 			}
 			else {
@@ -189,9 +211,7 @@ var money = {
 		}
 		if (!this.gotSecondQuest) {
 			if (this.currentQuest != firstMoneyQuest) {
-				htmlManagement.setVisible("moneybody");
-				this.gotSecondQuest = true;
-				htmlManagement.setVisible("message");
+				this.gotSecondQuestFunc();
 			}
 		}
 	}

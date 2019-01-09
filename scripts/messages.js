@@ -1,4 +1,4 @@
-firstMessage = "Hi sweetie!<br><br>I logged into your MyStudentHub account and saw your GPA is going up. I'm so happy you're finally back on track. Dad and I are very proud of you. I've enclosed $0.50 as a reward for my little baby trying hard at school! If you keep up the good work, I'll talk with Dad about sending more ;)<br><br>XOXO,<br>Mom"
+firstMessage = "Hi sweetie!<br><br>I logged into your MyStudentHub account and saw your GPA is going up. I'm so happy you're finally back on track. Dad and I are very proud of you. I've enclosed $0.50 as a reward for my little baby trying hard at school! If you keep up the good work, I'll talk with Dad about sending more \;)<br><br>XOXO,<br>Mom"
 
 secondMessage = "Hi again sweetie!<br><br>I see you're still working hard at school. Here's a bit more: $1! Hopefully all this money doesn't make you complacent ;)<br><br>XOXO,<br>Mom"
 

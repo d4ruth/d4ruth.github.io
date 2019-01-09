@@ -28,6 +28,7 @@ Light Gray: A2A4A3
 		<script type="text/javascript" src="./scripts/gpa.js"></script>
 		<script type="text/javascript" src="./scripts/money.js"></script>
 		<script type="text/javascript" src="./scripts/iq.js"></script>
+		<script type="text/javascript" src="./scripts/saveManagement.js"></script>
 		
 		<!-- stylesheet -->
 		<link rel="stylesheet" type="text/css" href="style.css"/>
@@ -36,7 +37,8 @@ Light Gray: A2A4A3
 	<body>
 		<header>
 			<h3>My<span style="color: #CFB87C">Student</span>Hub</h3>
-			<button id="restart" onclick="mycookie.readCookies();">Restart</button>
+			<button id="save" class="savebutton" onclick="saveManagement.save();">Save</button>
+			<button id="restart" class="savebutton" onclick="saveManagement.restart();">Restart</button>
 		</header>
 		<div id="mainbody">
 			<!-- the three main columns -->
