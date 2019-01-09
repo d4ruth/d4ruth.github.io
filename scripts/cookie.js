@@ -15,7 +15,7 @@ var mycookie = {
 		document.cookie = name + '=' + '; expires=' + deleteDate;
 	},
 	readCookies : function() {
-		this.setCookie('hello','goodbye',10);
+		this.setCookie('pewpewpew','goodbye',10);
 		this.setCookie('foo','bar',10);
 		this.deleteCookie('hello');
 		this.setCookie('goodbye','hello',10);
