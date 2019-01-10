@@ -41,7 +41,6 @@ var gpa = {
 	},
 	
 	doClick : function() {
-		alert("Greetings Safari, I've been expecting you");
 		this.numGPA += this.clickLevel;
 		this.displayGPA();
 	},
