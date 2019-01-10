@@ -58,7 +58,7 @@ A quest's prerequisites are always having x amount of gpa or money or iq. No gpa
 
 Quests have the following arguments:
 
-* cost - how much of a unit the player must have for the quest to be complete
+* cost - how much of the unit the player must have for the quest to be complete
 
 * unit - the unit of the cost, gpa or money or iq 
 
