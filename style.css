@@ -57,6 +57,7 @@ button:disabled {
 .locked {
 	visibility: hidden;
 }
+
 #message {
 	border-style: solid;
 	border-width: 10px;

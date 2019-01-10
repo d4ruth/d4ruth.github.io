@@ -14,17 +14,14 @@ var gardentools = new Product(3000, 2400, 'money', 0.040, 'gardening tools', 'Se
 var moneyProductStack = [rmhw, shovel, piggybank];
 
 //iq products
-var filler3 = new Product(300, 10, 'iq', 0.005, 'filler thing3 for testing', 'filler thing3 for testing', 'filler thing3 for testing');
-var filler4 = new Product(300, 100000, 'iq', 0.005, 'filler thing4 for testing', 'filler thing4 for testing', 'filler thing4 for testing');
 var brainpill = new Product(1500, 0, 'money', 0.005, 'bottle of FocusPills', 'Bottles of FocusPills consumed', 'boosts IQ');
+var mensa = new Product(5000, 10000, 'money', 0.020, 'MENSA membership', 'MENSA memberships acquired', 'allows you to hang out with and absorb the knowledge of ever-greater quantities of 98th percentile geniuses, smartasses, wise men, and wise guys');
 
-var iqProductStack = [filler4, filler3, brainpill];
+var iqProductStack = [mensa, brainpill];
 
 //Click upgrades
 var homework = new ClickProduct(0, 'money', 0, '', 'Do a homework assignment', '');
-
 var nicepen = new ClickProduct(1000, 'money', 5, 'nice blue pen', 'Do homework (in nice blue ink)', 'your homework is now done in TA-pleasing blue ink, netting you more GPA per assignment');
-
 var clicker = new ClickProduct(6000, 'money', 40, 'clickers', 'Take clicker quiz', 'doing clicker quizzes is sure to raise your GPA!');
 
 var gpaClickStack = [clicker, nicepen, homework];
