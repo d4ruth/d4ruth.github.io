@@ -6,6 +6,7 @@ var main = {
 		iq.onload();
 		message.onload();
 		window.setInterval(this.update.bind(this), 1);
+		window.setInterval(saveManagement.save.bind(this), 1000);
 	},
 	update : function() {
 		gpa.update();
