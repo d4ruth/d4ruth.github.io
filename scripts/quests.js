@@ -5,12 +5,14 @@ var thirdQuest = new Quest(-99999850, 'gpa', 200, thirdMessage);
 var fourthQuest = new Quest(-99999700, 'gpa', 500, fourthMessage);
 var fifthQuest = new Quest(1000, 'money', 3, fifthMessage);
 var scholarship1Quest = new Quest(-99995000, 'gpa', 5000, scholarship1message);
+var unclerickQuest = new Quest(30000, 'money', -25000, rickmessage);
 
-var moneyQuestStack = [scholarship1Quest, fifthQuest, fourthQuest, thirdQuest, secondQuest, firstMoneyQuest];
+var moneyQuestStack = [unclerickQuest, scholarship1Quest, fifthQuest, fourthQuest, thirdQuest, secondQuest, firstMoneyQuest];
 
 //IQ quests
 var firstIqQuest = new Quest(-99999000, 'gpa', 100, sixthMessage);
 var secondIqQuest = new Quest(3000, 'money', 30, brainpillmessage);
 var thirdIqQuest = new Quest(10000, 'money', 50, mensamessage);
+var dadIqQuest = new Quest(-99500000, 'gpa', 100, dadiqmessage);
 
-var iqQuestStack = [thirdIqQuest, secondIqQuest, firstIqQuest];
+var iqQuestStack = [dadIqQuest, thirdIqQuest, secondIqQuest, firstIqQuest];

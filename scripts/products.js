@@ -2,16 +2,17 @@
 var watch = new Product(50, 0, 'money', 0.001, 'wrist watch', 'Wrist watches', 'lets you get to classes with mandatory attendance on time, improving GPA');
 var clock = new Product(230, 500, 'money', 0.005, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to your 8ams, improving GPA');
 var planner = new Product(1000, 3000, 'money', 0.025, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
+var extracurricular = new Product(500, 1500, 'iq', 0.100, 'extracurricular activity', 'Extracurricular activities enrolled in', 'always looks good when you\'re applying to the next level of college. Supercollege.');
 
-var gpaProductStack = [planner, clock, watch];
+var gpaProductStack = [extracurricular, planner, clock, watch];
 
 //money products
 var piggybank = new Product(100, 0, 'money', 0.010, 'piggy bank', 'Piggy banks', 'lets you save up the spare change you find on the ground while walking from class to class');
 var shovel = new Product(250, 500, 'money', 0.030, 'shovel', 'Snow shovels', 'allows you to do snow-shoveling work on the side, making a little money in the process. Each shovel allows you to shovel more driveways at once');
 var rmhw = new Product(10, 50, 'iq', 0.040, 'your roommate\'s homework', 'Roommates\' homework being done', 'do one of your roommate\'s homework for quick cash');
-var gardentools = new Product(3000, 2400, 'money', 0.040, 'gardening tools', 'Sets of gardening tools', 'lets you help hippies grow their hippie food');
+var esports = new Product(300, 1000, 'iq', 0.400, 'an Esports director position at CU', 'Esports director positions at CU', 'use your ungodly intelligence to take on an Esports director positionand get paid big bucks');
 
-var moneyProductStack = [rmhw, shovel, piggybank];
+var moneyProductStack = [esports, rmhw, shovel, piggybank];
 
 //iq products
 var brainpill = new Product(1500, 0, 'money', 0.005, 'bottle of FocusPills', 'Bottles of FocusPills consumed', 'boosts IQ');
