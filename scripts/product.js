@@ -31,7 +31,7 @@ function Product(cost, upgradeCost, unit, increment, name, formalname, flavor) {
 				return 'Upgrade ' + this.name + ' to ' + newname + ' ($' + ((upgradeCost / 100)).toFixed(2) + ')';
 				break;
 			case 'iq':
-				return 'Upgrade ' + this.name + ' to do ' + newname + ' (' + upgradeCost + ' IQ points)';
+				return 'Upgrade ' + this.name + ' to ' + newname + ' (' + upgradeCost + ' IQ points)';
 				break;
 			default:
 				alert("ERROR: product unit must be 'money' or 'iq'");
