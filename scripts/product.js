@@ -92,7 +92,7 @@ function ClickProduct(cost, unit, increment, name, buttontext, flavor) {
 				return '$' + (this.cost / 100).toFixed(2) + ' - Buy ' + this.name + ' (' + this.flavor + ')';
 				break;
 			case 'iq':
-				return this.cost + ' IQ points - Buy ' + this.name + ' (' + this.flavor + ')';
+				return this.cost + ' IQ points - Do ' + this.name + ' (' + this.flavor + ')';
 				break;
 			default:
 				alert("ERROR: clickproduct unit must be 'money' or 'iq'");

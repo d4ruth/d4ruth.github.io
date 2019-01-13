@@ -5,9 +5,10 @@ var planner = new Product(1000, 3000, 'money', 0.025, 'planner', 'Planners', 'al
 var extracurricular = new Product(500, 1500, 'iq', 0.100, 'extracurricular activity', 'Extracurricular activities enrolled in', 'always looks good when you\'re applying to the next level of college. Supercollege.');
 var tutor = new Product(50000, 100000, 'money', 1.500, 'tutor', 'Tutors', 'they can charge such rates because they took the class themselves three years ago');
 var classtry = new Product(2000, 10000, 'iq', 1.750, 'actual work for the class', 'Classes with effort being put in', 'maybe you should\'ve tried this earlier');
+var hack = new Product(100000, 1000000, 'iq', 87.870, 'some hacking into the school\'s databases', 'Grades hacked', 'use your knowledge of code injection from Computer Systems to edit your grades online');
 
 
-var gpaProductStack = [classtry, tutor, extracurricular, planner, clock, watch];
+var gpaProductStack = [hack, classtry, tutor, extracurricular, planner, clock, watch];
 
 //money products
 var piggybank = new Product(100, 0, 'money', 0.010, 'piggy bank', 'Piggy banks', 'lets you save up the spare change you find on the ground while walking from class to class');
@@ -15,18 +16,21 @@ var shovel = new Product(250, 500, 'money', 0.030, 'shovel', 'Snow shovels', 'al
 var rmhw = new Product(10, 50, 'iq', 0.040, 'your roommate\'s homework', 'Roommates\' homework being done', 'do one of your roommate\'s homework for quick cash');
 var esports = new Product(1200, 8000, 'iq', 1.800, 'an Esports director position at CU', 'Esports director positions at CU', 'use your ungodly intelligence to take on an Esports director position and get paid big bucks');
 var ututor = new Product(300, 1000, 'iq', 0.400, 'some tutoring for one of your roommates', 'Roommates being tutored', 'they say teaching material helps you learn it better; they forget it can also earn you cash');
+var stocks = new Product(300000, 500000, 'money', 0.950, 'some stocks', 'Portfolio size', 'the business minor finally pays off');
 
-var moneyProductStack = [esports, ututor, rmhw, shovel, piggybank];
+var moneyProductStack = [stocks, esports, ututor, rmhw, shovel, piggybank];
 
 //iq products
 var brainpill = new Product(1500, 0, 'money', 0.005, 'bottle of FocusPills', 'Bottles of FocusPills consumed', 'boosts IQ');
-var mensa = new Product(5500, 10000, 'money', 0.020, 'MENSA membership', 'MENSA memberships acquired', 'allows you to hang out with and absorb the knowledge of ever-greater quantities of 98th percentile geniuses, smartasses, wise men, and wise guys');
+var mensa = new Product(5500, 10000, 'money', 0.020, 'MENSA membership', 'MENSA memberships acquired', 'allows you to hang out with - and absorb the knowledge of - ever-greater quantities of 98th percentile geniuses, smartasses, wise men, and wise guys');
+var textbook = new Product(110000, 200000, 'money', 0.500, 'textbook', 'Textbooks bought', 'a tad pricey');
 
-var iqProductStack = [mensa, brainpill];
+var iqProductStack = [textbook, mensa, brainpill];
 
 //Click upgrades
 var homework = new ClickProduct(0, 'money', 0, '', 'Do a homework assignment', '');
 var nicepen = new ClickProduct(1000, 'money', 5, 'nice blue pen', 'Do homework (in nice blue ink)', 'your homework is now done in TA-pleasing blue ink, netting you more GPA per assignment');
 var clicker = new ClickProduct(6000, 'money', 40, 'clickers', 'Take clicker quiz', 'doing clicker quizzes is sure to raise your GPA!');
+var homeworkwell = new ClickProduct(10000, 'iq', 200, 'your homework, but with - get this - the correct answers', 'Do homework assignment (well)', 'let\'s Chegg it up, baby!');
 
-var gpaClickStack = [clicker, nicepen, homework];
+var gpaClickStack = [homeworkwell, clicker, nicepen, homework];
