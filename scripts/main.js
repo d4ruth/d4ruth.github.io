@@ -19,6 +19,7 @@ var main = {
 			message.getMessages();
 		}
 		else if (!this.badwon) {
+			gpa.displayGPA();
 			this.winMessage();
 		}
 		else {
