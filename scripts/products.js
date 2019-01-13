@@ -3,7 +3,7 @@ var watch = new Product(50, 0, 'money', 0.001, 'wrist watch', 'Wrist watches', '
 var clock = new Product(230, 500, 'money', 0.005, 'alarm clock', 'Alarm clocks', 'shortens your sleep schedule so you get to your 8ams, improving GPA');
 var planner = new Product(1000, 3000, 'money', 0.025, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
 var extracurricular = new Product(500, 1500, 'iq', 0.100, 'extracurricular activity', 'Extracurricular activities enrolled in', 'always looks good when you\'re applying to the next level of college. Supercollege.');
-var tutor = new Product(50000, 100000, 'money', 'tutor', 'Tutors', 'they can charge such rates because they took the class themselves three years ago');
+var tutor = new Product(50000, 100000, 'money', 1.500, 'tutor', 'Tutors', 'they can charge such rates because they took the class themselves three years ago');
 
 var gpaProductStack = [tutor, extracurricular, planner, clock, watch];
 

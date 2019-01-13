@@ -44,6 +44,9 @@ var money = {
 		if (this.currentQuest != null) {
 			htmlManagement.setInnerHTML("moneyquest", this.currentQuest.getQuestText());
 		}
+		else {
+			htmlManagement.setInnerHTML("moneyquest", '');
+		}
 		if (this.currentProduct != null) {
 			htmlManagement.setInnerHTML("moneystats", this.currentProduct.formalName + ': ' + this.numIncrementers + ', ' + '$' + this.moneyPerMilli.toFixed(3) + '/update');
 		}
