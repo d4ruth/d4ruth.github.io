@@ -14,6 +14,7 @@ var moneyQuestStack = [dadMoneyQuest, unclerickQuest, scholarship1Quest, fifthQu
 var firstIqQuest = new Quest(-99999000, 'gpa', 100, sixthMessage);
 var secondIqQuest = new Quest(3000, 'money', 30, brainpillmessage);
 var thirdIqQuest = new Quest(10000, 'money', 50, mensamessage);
-var dadIqQuest = new Quest(-99500000, 'gpa', 100, dadiqmessage);
+var dadIqQuest = new Quest(-99500000, 'gpa', 1000, dadiqmessage);
+var roommateIqQuest = new Quest(10000, 'iq', 2000, roommateiqmessage);
 
 var iqQuestStack = [dadIqQuest, thirdIqQuest, secondIqQuest, firstIqQuest];

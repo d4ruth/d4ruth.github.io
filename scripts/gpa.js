@@ -58,7 +58,7 @@ var gpa = {
 	},
 	
 	getProduct : function() {
-		if (this.currentProduct != null) {
+		if (this.currentProduct != null && this.currentProduct.canAffordPurchase()) {
 			this.GPApermilli += this.currentProduct.increment;
 			this.numIncrementers += 1;
 			switch(this.currentProduct.unit) {

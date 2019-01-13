@@ -12,11 +12,11 @@ var message = {
 				document.getElementById("message").innerHTML = "You currently have no messages";
 			}
 			else if (this.messages.length == 1) {
-				document.getElementById("message").innerHTML = "<button onclick='message.clearMessages();'>Clear inbox</button><br>" + this.messages[0];
+				document.getElementById("message").innerHTML = "<button onclick='message.clearMessages();'>Clear inbox</button><br>" + this.messages[this.messages.length-1];
 				
 			}
 			else {
-				document.getElementById("message").innerHTML = "<button onclick='message.nextMessage();'>Next message</button><br>" + this.messages[0];
+				document.getElementById("message").innerHTML = "<button onclick='message.nextMessage();'>Next message</button><br>" + this.messages[this.messages.length-1];
 			}
 			this.newMessage = false;
 		}
@@ -24,7 +24,7 @@ var message = {
 	
 	clearMessages : function() {
 		document.getElementById("message").innerHTML = "";
-		this.messages.shift();
+		this.messages.pop();
 		this.newMessage = true;
 	},
 	
@@ -33,7 +33,7 @@ var message = {
 		this.newMessage = true;
 	},
 	nextMessage : function() {
-		this.messages.shift();
+		this.messages.pop();
 		this.newMessage = true;
 	}
 };

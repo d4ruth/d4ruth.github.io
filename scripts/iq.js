@@ -56,7 +56,7 @@ var iq = {
 	},
 	
 	getProduct : function() {
-		if (this.currentProduct != null) {
+		if (this.currentProduct != null && this.currentProduct.canAffordPurchase()) {
 			this.iqPerMilli += this.currentProduct.increment;
 			this.numIncrementers += 1;
 			switch(this.currentProduct.unit) {

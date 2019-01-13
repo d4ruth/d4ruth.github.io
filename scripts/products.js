@@ -4,8 +4,10 @@ var clock = new Product(230, 500, 'money', 0.005, 'alarm clock', 'Alarm clocks',
 var planner = new Product(1000, 3000, 'money', 0.025, 'planner', 'Planners', 'allows you to keep track of deadlines, improving GPA');
 var extracurricular = new Product(500, 1500, 'iq', 0.100, 'extracurricular activity', 'Extracurricular activities enrolled in', 'always looks good when you\'re applying to the next level of college. Supercollege.');
 var tutor = new Product(50000, 100000, 'money', 1.500, 'tutor', 'Tutors', 'they can charge such rates because they took the class themselves three years ago');
+var classtry = new Product(2000, 10000, 'iq', 1.750, 'actual work for the class', 'Classes with effort being put in', 'maybe you should\'ve tried this earlier');
 
-var gpaProductStack = [tutor, extracurricular, planner, clock, watch];
+
+var gpaProductStack = [classtry, tutor, extracurricular, planner, clock, watch];
 
 //money products
 var piggybank = new Product(100, 0, 'money', 0.010, 'piggy bank', 'Piggy banks', 'lets you save up the spare change you find on the ground while walking from class to class');
