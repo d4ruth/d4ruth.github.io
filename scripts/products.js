@@ -16,7 +16,7 @@ var shovel = new Product(250, 500, 'money', 0.030, 'shovel', 'Snow shovels', 'al
 var rmhw = new Product(10, 50, 'iq', 0.040, 'your roommate\'s homework', 'Roommates\' homework being done', 'do one of your roommate\'s homework for quick cash');
 var esports = new Product(1200, 8000, 'iq', 1.800, 'an Esports director position at CU', 'Esports director positions at CU', 'use your ungodly intelligence to take on an Esports director position and get paid big bucks');
 var ututor = new Product(300, 1000, 'iq', 0.400, 'some tutoring for one of your roommates', 'Roommates being tutored', 'they say teaching material helps you learn it better; they forget it can also earn you cash');
-var stocks = new Product(300000, 500000, 'money', 0.950, 'some stocks', 'Portfolio size', 'the business minor finally pays off');
+var stocks = new Product(300000, 500000, 'money', 2.250, 'some stocks', 'Portfolio size', 'the business minor finally pays off');
 
 var moneyProductStack = [stocks, esports, ututor, rmhw, shovel, piggybank];
 
